@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="sidebar" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    </div>
+
+    <div id="fake-top"></div>
+    <div id="entry-div">
+        <span class="button-sideBar" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+        <h1>To do List</h1>
+
+        <button class="button button-modal" data-modal="add-task-dialog">Add a task</button>
+    </div>
+
+    <div id="categories-div">
+
+    </div>
+
+    <dialog id="add-task-dialog">
+        <div class="modal-content">
+            <form>
+                <button formmethod="dialog" class="close">&times;</button>
+
+                <h2>Add a task</h2>
+
+                <div>
+                    <span>Title: </span>
+                    <input id="name-input" type="text" placeholder="Something..."/>
+        
+                    <span>Content:</span>
+                    <textarea id="content-input" rows="4" placeholder="Something..."></textarea>
+                </div>
+
+                <button formmethod="dialog" class="send-button" onclick="addTaskFromInputs()">Envoyer</button>
+            </form>
+        </div>
+    </dialog>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

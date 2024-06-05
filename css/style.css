@@ -1,0 +1,268 @@
+:root {
+    --box-width: 400px;
+    --box-height: calc(100vh - 182px);
+    --box-space: calc((100% - 3 * var(--box-width)) / 4);
+
+    --task-width: 80%;
+    --task-padding-up: 15px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0px;
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(0,212,255,1) 0%, rgba(40,40,177,1) 75%) no-repeat center center fixed;
+    height: 100%;
+}
+
+.button-sideBar {
+    display: none;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align:center;
+}
+
+.sidenav a {
+    min-width: 100px;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 36px;
+    margin-left: auto;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+#entry-div {
+    z-index: 1;
+    position: fixed;
+    padding: 10px 0px;
+
+    width: 100%;
+    height: 130px;
+
+    top: 0;
+    
+    background-color: white;
+}
+
+#fake-top {
+    display: fixed;
+    padding: 10px 0px;
+
+    width: 100%;
+    height: 130px;
+
+    top: 0;
+    
+    background-color: white;
+}
+
+h1 {
+    text-align: center
+}
+
+.cat-div{
+    display: inline-block;
+    width: calc(var(--box-width));
+    height: calc(var(--box-height));
+    
+    padding: 0 0 0 0;
+    
+    margin-top: 16px;
+    margin-left: var(--box-space);
+    
+    background-color: white;
+    border-radius: 25px;
+    
+    overflow: auto;
+
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.cat-div::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+.task-div {
+    display: block;
+    position: relative;
+
+    width: calc(var(--task-width));
+    max-width: calc(var(--task-width));
+
+    padding: var(--task-padding-up);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: var(--task-padding-up);
+    margin-bottom: var(--task-padding-up);
+    
+    background-color: white;
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.096);
+    border-radius: 10px;
+
+    opacity: 100;
+    transition-duration: 1s;
+}
+
+.select-task-div {
+    display: block;
+    position: fixed;
+
+    width: calc(0.8 * var(--box-width));
+    max-width: calc(0.8 * var(--task-width));
+
+    padding-left: calc(0.05 * var(--box-width));
+    padding-right: calc(0.05 * var(--box-width));
+    padding-top: calc(0.05 * var(--box-width));
+    padding-bottom: calc(0.05 * var(--box-width));
+    
+    background-color: white;
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.096);
+    border-radius: 10px;
+}
+
+.task-name {
+
+}
+
+.task-cancel {
+    position: absolute;
+    float: right;
+    top: -10px;
+    right: -10px;
+
+    background: rgba(163, 163, 163, 0.781);
+	color: white;
+    border-radius: 10px;
+    border: 1px solid transparent;
+}
+
+@media (max-width: 1280px) {
+    .cat-div{
+        display: block;
+        
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .button-sideBar {
+        display: block;
+        position: absolute;
+
+        top: 20px;
+        left: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .cat-div{
+        width: 100%;
+    }
+}
+
+dialog {
+    width: 800px;
+    height: 350px;
+    overflow: auto;
+
+    box-shadow: 0 2px 5px #f5f5f5;
+    background: #eee;
+}
+
+.modal-content {
+    width: 90%;
+    margin: auto;
+    padding: 25px;
+}
+
+h2, p {
+    margin: 0 0 20px;
+    font-weight: 400;
+    color: #999;
+}
+
+span {
+    color: #666;
+    display: block;
+    padding: 0 0 5px;
+}
+
+input, textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #1c87c9;
+    outline: none;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.send-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #1c87c9;
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+}
+
+.button {
+    border: none;
+    background: #1c87c9;
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+
+    display: block;
+    width: 160px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.button:hover {
+    background: #2371a0;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
